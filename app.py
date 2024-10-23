@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from sentence_transformers import SentenceTransformer
-from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import Chroma
 from chromadb import Client
 from flask_cors import CORS  
 import json
