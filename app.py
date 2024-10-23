@@ -21,13 +21,6 @@ def init_database():
     
     # Try to load the existing collection
     persist_dir = os.path.join(os.path.dirname(__file__), 'data/vector_db')
-
-#    try:
-#        vectordb = Chroma(persist_directory=persist_dir)
-#        print("Collection loaded from disk.")
-#    except Exception:
-#       print("No existing collection found, creating a new one.")
-        
     json_path=os.path.join(os.path.dirname(__file__), 'data/personal-data2.json')
 
     # Loading JSON and creating new collection
