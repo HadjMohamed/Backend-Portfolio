@@ -9,7 +9,7 @@ import os
 
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
 def init_database():
     
@@ -56,7 +56,12 @@ def generate_humanized_response(query):
 
     return response
 
-# Flask route
+# Flask app
+
+@app.route('/')
+def home():
+    return "API online !"
+
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
     data = request.json
