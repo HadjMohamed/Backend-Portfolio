@@ -28,6 +28,7 @@ Flask-Cors==5.0.0
 flatbuffers==24.3.25
 frozenlist==1.4.1
 fsspec==2024.9.0
+gevent
 google-auth==2.35.0
 googleapis-common-protos==1.65.0
 greenlet==3.1.1
