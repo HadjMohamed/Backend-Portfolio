@@ -9,8 +9,15 @@ import os
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://backend-portfolio-j4h1.onrender.com", "http://127.0.0.1:5500"]}})
-
+CORS(app, resources={
+    r"/chatbot": {
+        "origins": [
+            "http://127.0.0.1:5500",  # Local dev avec frontend
+            "https://hadjmohamed.github.io",  # GitHub Pages
+            "https://backend-portfolio-j4h1.onrender.com"  # URL Render
+        ]
+    }
+})
 def init_database():
     
     # Embedding Model : MiniLM
