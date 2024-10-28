@@ -9,7 +9,7 @@ import os
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://hadjmohamed.github.io"], methods=["POST", "OPTIONS"])
 
 def init_database():
     
