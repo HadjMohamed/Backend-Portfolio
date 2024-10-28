@@ -9,7 +9,7 @@ import os
 
 
 app = Flask(__name__)
-CORS(app, origins=["https://hadjmohamed.github.io"], methods=["POST", "OPTIONS"])
+CORS(app, resources={r"/*": {"origins": ["https://backend-portfolio-j4h1.onrender.com", "http://127.0.0.1:5500"]}})
 
 def init_database():
     
