@@ -1,3 +1,7 @@
+from sentence_transformers import SentenceTransformer
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import Chroma
+from chromadb import Client
 from flask import Flask, request, jsonify
 from flask_cors import CORS  
 import json
@@ -7,10 +11,9 @@ import os
 app = Flask(__name__)
 
 PUBLIC_DOMAIN = os.getenv("RAILWAY_PUBLIC_DOMAIN")
-CORS_ORIGIN = f"https://{PUBLIC_DOMAIN}" if PUBLIC_DOMAIN else "http://127.0.0.1:5000"
+CORS_ORIGIN = f"https://{PUBLIC_DOMAIN}" if PUBLIC_DOMAIN else "http://127.0.0.1:5500"
 
-# Configurer CORS
-from flask_cors import CORS
+# CORS
 CORS(app, resources={r"/chatbot": {"origins": [CORS_ORIGIN]}})
 
 
@@ -52,7 +55,7 @@ def generate_humanized_response(query):
     # Similarity search
     response = vectordb.similarity_search_with_score(query=query, k=5)
     best_match, similarity_score = response[0]
-    if response and similarity_score<1: #Only relevant answers
+    if response : #Only relevant answers
         answer = best_match.metadata.get('answer')
         response = f"Merci pour votre question ! {answer}."
     else:
