@@ -58,9 +58,9 @@ def generate_humanized_response(query):
     best_match, similarity_score = response[0]
     if response : #Only relevant answers
         answer = best_match.metadata.get('answer')
-        response = f"Merci pour votre question ! {answer}."
+        response = f"Thanks for your question! {answer}"
     else:
-        response = "Je suis désolé, je n'ai pas pu trouver d'informations correspondant à votre question dans la base de données. N'hésitez pas à poser une autre question ou à contacter directement Mohamed."
+        response = "I’m sorry, I couldn’t find any information matching your question in the database. Feel free to ask another question or contact Mohamed directly."
 
     return response
 
