@@ -1,0 +1,91 @@
+import os 
+import json
+from sentence_transformers import SentenceTransformer
+from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import Chroma
+from chromadb import Client
+from transformers import pipeline
+
+
+text_generator = pipeline('text-generation', model='gpt2')
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')  # Sentence-BERT model
+# Chroma DB creation or loading
+client = Client()
+collection = client.get_or_create_collection("faq_responses")
+
+def init_database():
+    # Try to load the existing collection
+    persist_dir = os.path.join(os.path.dirname(__file__), 'data/vector_db')
+    json_path=os.path.join(os.path.dirname(__file__), 'data/personal-data2.json')
+
+    # Loading JSON and creating new collection
+    with open(json_path, 'r') as file:
+        data = json.load(file)
+
+    # TEXT = [f"{item['question']} {item['answer']}" for item in data]
+    # meta_data = [{"question": item["question"], "answer": item["answer"]} for item in data]
+#     vector_db = Chroma.from_texts(
+#         texts=TEXT,
+#         embedding=embedding_func,
+#         metadatas=meta_data,
+#         persist_directory=persist_dir, 
+#         collection_name="questions_reponses"
+# )
+    for id,qa in enumerate(data):  
+        embedded_answers=model.encode(qa["answer"]).tolist()
+        collection.add(
+            documents=[qa["answer"]],  # Answers text
+            metadatas=[{"response_id": id}],  # ID de la réponse
+            ids=[f"id{id}"],
+            embeddings=[embedded_answers]  # Embedding de la réponse
+        )
+
+init_database()
+
+def find_best_answer(user_question):
+    question_embedding = model.encode(user_question)  # Encoder la question
+    # Code pour rechercher le vecteur le plus proche dans ChromaDB
+    # par exemple :
+    results = collection.query(
+    query_embeddings=[question_embedding],
+    n_results=1,
+    )
+    if results['documents']:
+        best_answer = results['documents'][0][0]
+        return best_answer
+    else:
+        return "Je n'ai pas trouvé de réponse pertinente."
+
+# def generate_humanized_response(query):
+
+#     # Similarity search
+#     response = vectordb.similarity_search_with_score(query=query, k=5)
+#     best_match, similarity_score = response[0]
+#     if response and similarity_score<1: #Only relevant answers
+#         answer = best_match.metadata.get('answer')
+#         response = f"Merci pour votre question ! {answer}."
+#     else:
+#         response = "Je suis désolé, je n'ai pas pu trouver d'informations correspondant à votre question dans la base de données. N'hésitez pas à poser une autre question ou à contacter directement Mohamed."
+
+#     return response
+
+
+def reformulate_answer(answer, question):
+    prompt = (
+        f"Tu es Mohamed Hadj. Tu recois des questions à propos de toi même. Reformule la réponse suivante pour qu'elle soit plus courte si besoin et plus adaptée au contexte de la question:\n\n"
+        f"Question : {question}\n\n"
+        f"Réponse brute : {answer}\n\nRéponse reformulée :"
+    )
+    reformulated = text_generator(prompt, max_new_tokens=50, do_sample=True, top_p=0.5)
+    return reformulated[0]['generated_text']
+
+def get_answer(user_question):
+    best_answer = find_best_answer(user_question)  
+    if best_answer:  # answer found
+        final_response = reformulate_answer(best_answer, user_question)  
+        return final_response
+    else:
+        return "Je n'ai pas trouvé de réponse à votre question."
+    
+if __name__ == '__main__':
+    print(get_answer("Fais-tu du sport ?"))

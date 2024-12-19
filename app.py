@@ -1,28 +1,25 @@
 from flask import Flask, request, jsonify
-from sentence_transformers import SentenceTransformer
-from langchain_community.embeddings import SentenceTransformerEmbeddings
-from langchain_community.vectorstores import Chroma
-from chromadb import Client
 from flask_cors import CORS  
 import json
 import os
 
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/chatbot": {
-        "origins": [
-            "http://127.0.0.1:5500",  # Local dev avec frontend
-            "https://hadjmohamed.github.io",  # GitHub Pages
-            "https://backend-portfolio-j4h1.onrender.com"  # URL Render
-        ]
-    }
-})
+
+PUBLIC_DOMAIN = os.getenv("RAILWAY_PUBLIC_DOMAIN")
+CORS_ORIGIN = f"https://{PUBLIC_DOMAIN}" if PUBLIC_DOMAIN else "http://127.0.0.1:5000"
+
+# Configurer CORS
+from flask_cors import CORS
+CORS(app, resources={r"/chatbot": {"origins": [CORS_ORIGIN]}})
+
+
 def init_database():
     
     # Embedding Model : MiniLM
     embedding_func = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
-    
+    model = SentenceTransformer('paraphrase-MiniLM-L6-v2')  # Sentence-BERT model
+
     # Chroma DB creation or loading
     client = Client()
     
@@ -31,8 +28,8 @@ def init_database():
     json_path=os.path.join(os.path.dirname(__file__), 'data/personal-data2.json')
 
     # Loading JSON and creating new collection
-    with open(json_path, 'r') as f:
-        data = json.load(f)
+    with open(json_path, 'r') as file:
+        data = json.load(file)
 
     TEXT = [f"{item['question']} {item['answer']}" for item in data]
     meta_data = [{"question": item["question"], "answer": item["answer"]} for item in data]
