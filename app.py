@@ -10,12 +10,13 @@ import os
 
 app = Flask(__name__)
 
-PUBLIC_DOMAIN = os.getenv("RAILWAY_PUBLIC_DOMAIN")
-CORS_ORIGIN = f"https://{PUBLIC_DOMAIN}" if PUBLIC_DOMAIN else "http://127.0.0.1:5500"
+# PUBLIC_DOMAIN = os.getenv("RAILWAY_PUBLIC_DOMAIN")
+# CORS_ORIGIN = f"https://{PUBLIC_DOMAIN}" if PUBLIC_DOMAIN else "http://127.0.0.1:5500"
 
 # CORS
-CORS(app, resources={r"/chatbot": {"origins": [CORS_ORIGIN]}})
-
+CORS(app, resources={r"/chatbot": {"origins": ["https://hadjmohamed.github.io",
+                                               "http://127.0.0.1:5500"
+                                               ]}})
 
 def init_database():
     
