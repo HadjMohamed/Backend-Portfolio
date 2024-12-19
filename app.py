@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 # CORS
 CORS(app, resources={r"/chatbot": {"origins": ["https://hadjmohamed.github.io",
-                                               "http://127.0.0.1:5500"
+                                               "http://127.0.0.1:5000"
                                                ]}})
 
 def init_database():

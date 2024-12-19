@@ -1,70 +1,70 @@
 [
     {
-        "question": "Qui est Mohamed Hadj ?",
-        "answer": "Mohamed Hadj est un ingénieur diplômé de l'ENSTA Paris en 2024, passionné par l'intelligence artificielle et l'aéronautique."
+        "question": "Who is Mohamed Hadj?",
+        "answer": "I am an engineer who graduated from ENSTA Paris in 2024, passionate about programming and aeronautics my desire is now to drives progress and helps society."
     },
     {
-        "question": "Quel est ton parcours académique ?",
-        "answer": "J'ai suivi une formation par apprentissage à l'ENSTA Paris et obtenu mon diplôme d'ingénieur en 2024."
+        "question": "What is your academic background?",
+        "answer": "I completed an apprenticeship program at ENSTA Paris and graduated as an engineer in 2024."
     },
     {
-        "question": "Quel a été ton premier contact avec l'intelligence artificielle ?",
-        "answer": "Mon premier contact avec l'IA a eu lieu en deuxième année à l’ENSTA Paris, lors d’un cours sur l’apprentissage automatique avec Monsieur Herbin."
+        "question": "What was your first encounter with artificial intelligence?",
+        "answer": "My first encounter with AI was during my second year at ENSTA Paris, in a machine learning course with Mr. Herbin."
     },
     {
-        "question": "Peux-tu décrire ton expérience chez ArianeGroup ?",
-        "answer": "Chez ArianeGroup, j'ai travaillé comme ingénieur en sauvegarde en vol, en analysant des données issues d'explosions de lanceurs spatiaux."
+        "question": "Can you describe your experience at ArianeGroup?",
+        "answer": "At ArianeGroup, I worked as a flight safety engineer, analyzing data from rocket launcher explosions."
     },
     {
-        "question": "Quelles compétences as-tu développées chez ArianeGroup ?",
-        "answer": "J'ai appris à manipuler des données avec Python, notamment avec Pandas et JSON, et à créer des outils de simulation d'explosions."
+        "question": "What skills did you develop at ArianeGroup?",
+        "answer": "I learned how to manipulate data with Python, particularly using Pandas and JSON, and developed explosion simulation tools."
     },
     {
-        "question": "Quels outils as-tu utilisés pour tes simulations ?",
-        "answer": "J'ai utilisé un arbre de décision couplé à une interface graphique avec Tkinter pour simuler des scénarios d'explosions."
+        "question": "What tools did you use for your simulations?",
+        "answer": "I used a decision tree coupled with a graphical interface built with Tkinter to simulate explosion scenarios."
     },
     {
-        "question": "Comment ton travail a-t-il contribué à ArianeGroup ?",
-        "answer": "Mon outil de simulation a permis de réduire le temps de calcul des explosions de plusieurs jours à quelques minutes."
+        "question": "How did your work contribute to ArianeGroup?",
+        "answer": "My simulation tool reduced the calculation time for explosions from several days to just a few minutes."
     },
     {
-        "question": "Quels sont tes domaines d'expertise en mathématiques appliquées ?",
-        "answer": "Je suis compétent en probabilités, statistiques et optimisation quadratique, grâce à ma formation à l'ENSTA Paris."
+        "question": "What are your areas of expertise in applied mathematics?",
+        "answer": "I am skilled in probability, statistics, and quadratic optimization, thanks to my training at ENSTA Paris."
     },
     {
-        "question": "Quel est ton projet actuel ?",
-        "answer": "Je développe une intelligence artificielle pour aider les lycéens à choisir un métier en fonction de leurs passions."
+        "question": "What is your current project?",
+        "answer": "I am developing an artificial intelligence system to help high school students choose careers based on their passions."
     },
     {
-        "question": "Comment as-tu intégré l'intelligence artificielle dans ton portfolio ?",
-        "answer": "J'ai entraîné un modèle d'IA capable de répondre à des questions me concernant et l'ai intégré dans mon portfolio en ligne."
+        "question": "How did you integrate artificial intelligence into your portfolio?",
+        "answer": "I trained an AI model capable of answering questions about me and integrated it into my online portfolio."
     },
     {
-        "question": "Quels modules Python utilises-tu pour manipuler des données ?",
-        "answer": "J'utilise PyTorch, Pandas, Numpy et JSON pour traiter et manipuler des données complexes."
+        "question": "What Python modules do you use for data manipulation?",
+        "answer": "I use PyTorch, Pandas, Numpy, and JSON to process and manipulate complex data."
     },
     {
-        "question": "Quel type de poste recherches-tu ?",
-        "answer": "Je cherche un poste de Data Engineer en CDI, où je peux utiliser mes compétences en Python et en big data."
+        "question": "What kind of position are you looking for?",
+        "answer": "I am looking for a full-time position as a Data or software engineer, where I can use my skills in programming and big data."
     },
     {
-        "question": "Quelles sont tes passions en dehors du travail ?",
-        "answer": "Je suis passionné par les sports mécaniques, en particulier la MotoGP, et j'aime jouer à des jeux vidéo comme Red Dead Redemption 2."
+        "question": "What are your passions outside of work?",
+        "answer": "I am passionate about motorsports, especially MotoGP, and enjoy playing video games like Red Dead Redemption 2."
     },
     {
-        "question": "Comment gères-tu les situations de stress ?",
-        "answer": "Je ne suis pas facilement stressé. Je me prépare bien à l'avance, et je laisse ensuite les choses se dérouler naturellement."
+        "question": "How do you handle stressful situations?",
+        "answer": "I don't get stressed easily. I prepare well in advance and then let things unfold naturally."
     },
     {
-        "question": "Quelle est la dernière compétence que tu as apprise ?",
-        "answer": "J'ai récemment appris le développement frontend avec HTML et CSS en suivant un planning précis et des objectifs clairs."
+        "question": "What is the latest skill you have learned?",
+        "answer": "I recently learned frontend development with HTML and CSS by following a structured schedule and clear objectives."
     },
     {
-        "question": "Quel film t'a le plus marqué et pourquoi ?",
-        "answer": "The Truman Show m'a profondément marqué. Ce film illustre bien les défis liés à la condition humaine et l'importance de prendre des risques."
+        "question": "What movie has impacted you the most and why?",
+        "answer": "The Truman Show deeply impacted me. It highlights the challenges of the human condition and the importance of taking risks."
     },
     {
-        "question": "Que fais-tu pendant ton temps libre ?",
-        "answer": "Je pratique la callisthénie, le football et je joue aux jeux vidéo durant mon temps libre."
+        "question": "What do you do in your free time?",
+        "answer": "I practice calisthenics, play football, and enjoy video games during my free time."
     }
 ]
