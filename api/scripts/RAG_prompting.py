@@ -1,6 +1,9 @@
 import chromadb
-from openai import OpenAI
 import os
+
+
+client = chromadb.PersistentClient()
+collection = client.get_collection(name="mohamed_rag")
 
 def collection_query(question :str)-> dict:
     """
@@ -10,9 +13,6 @@ def collection_query(question :str)-> dict:
     Returns:
         tuple: A tuple containing the results and context.
     """
-    client = chromadb.PersistentClient()
-    collection = client.get_collection(name="mohamed_rag")
-    # Perform a query on the collection
     results = collection.query(query_texts=[question], n_results=3)
     return results # type: ignore
 
@@ -42,10 +42,4 @@ def prompt_RAG(question: str, results: dict) -> str:
     prompt += f"Voici la question: {question}\n Réponse:"
     
     return prompt
-
-
-if __name__ == "__main__":
-    question = "Qui est Mohamed Hadj ?"
-    results = collection_query(question)
-    print("Results:", results)
 

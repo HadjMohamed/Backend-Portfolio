@@ -57,12 +57,3 @@ def vectorize_to_chromaDB(MODEL_NAME:str, documents: list, metadatas: list, ids:
     )
     
     return None
-
-if __name__ == "__main__":
-    FILE_PATH="faq_mohamed_hadj.json"
-    MODEL_NAME="sentence-transformers/all-mpnet-base-v2"
-    # Load and prepare data
-    documents, metadatas, ids = load_prepare_data(FILE_PATH)
-
-    # Vectorize and store in ChromaDB
-    vectorize_to_chromaDB(MODEL_NAME,documents, metadatas, ids)

@@ -2,7 +2,7 @@
 Define the RAG logic: if the answer is relevant (score<1), use the RAG model; otherwise, use the prompt-only model.
 """
 
-from scripts.DAG_prompting import collection_query, prompt_RAG
+from scripts.RAG_prompting import collection_query, prompt_RAG
 from scripts.prompt_only_qa import prompt_only
 from scripts.call_llm import call_llm
 import json

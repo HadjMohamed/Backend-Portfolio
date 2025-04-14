@@ -1,5 +1,6 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,Request
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
 from scripts.rag_logic import generate_response
 
 
@@ -10,6 +11,7 @@ class Question(BaseModel):
     """
     question: str
 
+    
 @app.post('/ask')
 async def ask(data: Question):
     """
