@@ -2,9 +2,19 @@ from fastapi import FastAPI, HTTPException,Request
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from scripts.rag_logic import generate_response
-
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# CORS settings
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://hadjmohamed.github.io"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 class Question(BaseModel):
     """
     Model for the question input.

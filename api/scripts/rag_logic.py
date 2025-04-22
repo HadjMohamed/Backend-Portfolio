@@ -8,7 +8,7 @@ from scripts.call_llm import call_llm
 import json
 from loguru import logger
 
-RAG_THRESHOLD = 1
+RAG_THRESHOLD = 0.9
 
 JSON_PATH = "faq_mohamed_hadj.json"
 
@@ -30,3 +30,6 @@ def generate_response(question: str) -> str:
         prompt = prompt_only(question, data)
 
     return call_llm(prompt)
+
+
+    
