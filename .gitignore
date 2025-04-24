@@ -2,3 +2,4 @@
 .envrc
 .python-version
 faq_mohamed_hadj.json
+.pytest_cache/

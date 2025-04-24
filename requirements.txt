@@ -1,0 +1,9 @@
+chromadb
+fastapi
+openai
+pydantic
+sentence_transformers
+uvicorn
+loguru
+pytest
+redis
